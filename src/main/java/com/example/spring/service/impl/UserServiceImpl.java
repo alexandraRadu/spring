@@ -1,8 +1,6 @@
 package com.example.spring.service.impl;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.spring.domain.Person;
@@ -12,9 +10,17 @@ import com.example.spring.service.UserService;
 @Component
 public class UserServiceImpl implements UserService {
 	
-	@Autowired
+
 	private UserRepository userRepository;
 	
+	public UserRepository getUserRepository() {
+		return userRepository;
+	}
+
+	public void setUserRepository(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
 	@Override
 	public List<Person> list() {
 		//call method from UserRepository and remove throw

@@ -20,12 +20,12 @@ public class Application {
 	
 	public static void main(String[] args) {
 		
-		List<ConfigRunner> runnerList = new ArrayList<>();
+		/*List<ConfigRunner> runnerList = new ArrayList<>();
 		runnerList.add(new JavaConfigRunner());
 		
 		for(ConfigRunner configRunner : runnerList){
 			configRunner.run();
-		}
+		}/*
 		
 		/* System.out.println("Running ");
 		  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
@@ -35,8 +35,12 @@ public class Application {
 		  System.out.println(userController.getUsers().size());
 		  context.registerShutdownHook();*/
 		
-		
-		
-		
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+		ApplicationContextAwareImpl appcontext= context.getBean(ApplicationContextAwareImpl.class);
+		appcontext.getService();
+		context.registerShutdownHook();
 	}
+
+		
+	
 }
